@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>Admin Panel</h1>
+                    <span class="subheading">Manage your posts and change them</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            <h1>Basic Action</h1>
+            <a href="/dashboard"><button class="btn btn-primary">Dashboard Home</button></a>
+            <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+            <hr>
+            <h1>Add/Edit posts</h1>
+            <form id="contactForm" action="/edit/{{s_no}}" method="post">
+                        <div class="form-floating">
+                            <input class="form-control" id="title" name="title" type="text" placeholder="Text" required value="{{post.Title}}">
+                            <label>Title</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="tline" name="tline" type="text" placeholder="Tagline" required value="{{post.tagline}}">
+                            <label>Tagline</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="slug" name="slug" type="text" placeholder="Slug" required value="{{post.slug}}">
+                            <label>Slug</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="content" name="content" placeholder="Content" required value="{{post.Content}}">
+                            <label>Content</label>
+                        </div>
+                        <div class="form-floating">
+                            <input class="form-control" id="img_file" name="img_file" placeholder="Image Filename" required value="{{post.img_file}}">
+                            <label>Image File</label>
+                        </div>
+                        <br/>
+                <td><button class= "btn btn-primary">Submit</button></td>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>{{params['blog_name']}}</h1>
+                    <span class="subheading">{{params['tag_line']}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            {% for post in posts.items %}
+            <div class="post-preview">
+                <a href="{{ url_for('post_route', post_slug=post.slug) }}">
+                    <h2 class="post-title">{{ post.Title }}</h2>
+                    <h3 class="post-subtitle">{{ post.Content[:50] }}...</h3>
+                </a>
+                <p class="post-meta">
+                    Posted on {{ post.Date.strftime('%B %d, %Y') }}
+                </p>
+            </div>
+            <hr class="my-4" />
+            {% endfor %}
+
+            <div class="d-flex justify-content-between mb-4">
+                <a class="btn btn-primary text-uppercase {% if not posts.has_prev %}disabled{% endif %}"
+                   href="{{ url_for('home', page=posts.prev_num) }}">&larr; Newer Posts</a>
+
+                <a class="btn btn-primary text-uppercase {% if not posts.has_next %}disabled{% endif %}"
+                   href="{{ url_for('home', page=posts.next_num) }}">Older Posts &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

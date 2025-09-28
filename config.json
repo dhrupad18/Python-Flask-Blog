@@ -1,0 +1,22 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql://root:@localhost/test",
+    "prod_uri": "mysql://root:@localhost/test",
+    "login_image": "Syntax_Syndicates.png",
+    "fb_url": "https://facebook.com/test",
+    "gh_url": "https://github.com/test",
+    "tw_url": "https://twitter.com/test",
+    "ig_url": "https://instagram.com/test",
+    "blog_name": "Royal Blog",
+    "tag_line": "This is my first blog",
+    "gmail-user": "your-email@gmail.com",
+    "gmail-password": "your-password",
+    "about_text": "Some text about you.",
+    "admin_user":"dhrupad",
+    "no_of_posts": 3,
+    "admin_password": "welcome18",
+    "upload_location": "G:\\PYTHON\\FLASK\\static\\assets"
+  }
+}
